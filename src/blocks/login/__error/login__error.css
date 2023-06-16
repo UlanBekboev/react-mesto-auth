@@ -1,0 +1,18 @@
+.login__error {
+  display: block;
+  margin: -22px 0 0 0;
+  min-height: 30px;
+  max-width: 358px;
+  color: red;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+}
+
+@media screen and (max-width: 768px) {
+  .login__error {
+    max-width: 260px;
+    margin: -15px 0 0 0;
+  }
+}
