@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
-import useFormValidation from './FormValidator';
+import useFormValidation from '../hooks/useFormValidation';
 
 
 const AddPlacePopup = ({ isOpen, onClose, onAddPlace, onLoading }) => {

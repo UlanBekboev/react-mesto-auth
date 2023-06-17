@@ -164,8 +164,8 @@ function App() {
       .then((res) => {
         if (res.token) {
           setLoggedIn(true);
-        localStorage.setItem("jwt", data.token);
-        setEmailName(data.email);
+        localStorage.setItem("jwt", res.token);
+        setEmailName(res.email);
         navigate('/', {replace: true});
         }
       })
@@ -270,7 +270,10 @@ function App() {
         onOk={handleCardDelete}
         card={removedCardId}
       />
-      <PopupWithImage card={selectedCard} onClose={closeAllPopups} />
+      <PopupWithImage 
+         card={selectedCard}
+         onClose={closeAllPopups}
+         isOpen={selectedCard._id} />
 
       <InfoTooltip 
         onSuccess={isRegistrationSuccessful}

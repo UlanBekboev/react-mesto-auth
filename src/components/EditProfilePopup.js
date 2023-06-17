@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import useFormValidation from "./FormValidator";
+import useFormValidation from "../hooks/useFormValidation";
 
 const EditProfilePopup = ({ isOpen, onClose, onLoading, onUpdateUser }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -60,7 +60,7 @@ const EditProfilePopup = ({ isOpen, onClose, onLoading, onUpdateUser }) => {
             onChange={handleChange}
           />
           <span id="job-error" className="form__input-error">
-            {errors.description}
+            {errors.about}
           </span>
       </PopupWithForm>
   )
