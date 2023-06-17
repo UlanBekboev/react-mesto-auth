@@ -1,28 +1,17 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import AuthForm from "./AuthForm";
-import useFormValidation from "../hooks/useFormValidation";
 
-const Register = ({onRegister}) => {
-  const { enteredValues, errors, handleChange } = useFormValidation({});
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    onRegister(enteredValues);
+const Register = ({ onRegister }) => {
+  function handleSubmit(values) {
+    onRegister(values);
   }
 
   return (
-    <section className="login">
-      <h2 className="login__title">Регистрация</h2>
-      <AuthForm 
-        onSubmit={handleSubmit}
-        enteredValues={enteredValues}
-        errors={errors}
-        handleChange={handleChange}
-      >
-        <button type="submit">Зарегистрироваться</button>
-      </AuthForm>
-      <p className="login__text">Уже зарегистрированы? <Link to="/sign-in" className="login__link">Войти</Link> </p> 
-    </section>
+    <AuthForm
+      title="Регистрация"
+      buttonText="Зарегистрироваться"
+      onSubmit={handleSubmit}
+    />
   );
 }
 

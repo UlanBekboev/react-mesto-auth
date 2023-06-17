@@ -1,30 +1,18 @@
-import useFormValidation from "../hooks/useFormValidation";
+import React from "react";
 import AuthForm from "./AuthForm";
 
 const Login = ({ onLogin }) => {
-  const { enteredValues, errors, handleChange } = useFormValidation({});
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    if (!enteredValues.email || !enteredValues.password) {
-      return;
-    }
-    onLogin(enteredValues);
+  function handleSubmit(values) {
+    onLogin(values);
   }
 
   return (
-    <section className="login">
-      <h2 className="login__title">Войти</h2>
-      <AuthForm 
-        onSubmit={handleSubmit}
-        enteredValues={enteredValues}
-        errors={errors}
-        handleChange={handleChange}
-      >
-        <button type="submit">Войти</button>
-      </AuthForm>
-    </section>
+    <AuthForm
+      title="Вход"
+      buttonText="Войти"
+      onSubmit={handleSubmit}
+    />
   );
-};
+}
 
 export default Login;
